@@ -305,23 +305,35 @@ string ClassName(const FileDescriptor* descriptor) {
   return name_resolver.GetClassName(descriptor, true);
 }
 
-
 string ExtraMessageInterfaces(const Descriptor* descriptor) {
   string interfaces = "// @@protoc_insertion_point(message_implements:"
       + descriptor->full_name() + ")";
+
   return interfaces;
 }
 
-
 string ExtraBuilderInterfaces(const Descriptor* descriptor) {
-  string interfaces = "// @@protoc_insertion_point(builder_implements:"
+  string interfaces = "";
+
+  if (!descriptor->options().java_builder_implements().empty()) {
+    interfaces += descriptor->options().java_builder_implements() + ",\n";
+  }
+
+  interfaces += "// @@protoc_insertion_point(builder_implements:"
       + descriptor->full_name() + ")";
   return interfaces;
 }
 
 string ExtraMessageOrBuilderInterfaces(const Descriptor* descriptor) {
-  string interfaces = "// @@protoc_insertion_point(interface_extends:"
+  string interfaces = "";
+
+  if (!descriptor->options().java_message_implements().empty()) {
+    interfaces += descriptor->options().java_message_implements() + ",\n";
+  }
+
+  interfaces += "// @@protoc_insertion_point(interface_extends:"
       + descriptor->full_name() + ")";
+
   return interfaces;
 }
 

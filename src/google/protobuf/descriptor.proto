@@ -497,6 +497,14 @@ message MessageOptions {
   reserved 8;  // javalite_serializable
   reserved 9;  // javanano_as_lite
 
+  // Adds a custom interface to the list of interfaces implemented by the
+  // generated, immutable message class.
+  optional string java_message_implements = 10;
+
+  // Adds a custom interface to the list of interfaces implemented by the
+  // generated message builder class.
+  optional string java_builder_implements = 11;
+
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
 

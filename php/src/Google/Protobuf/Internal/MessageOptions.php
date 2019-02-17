@@ -81,6 +81,22 @@ class MessageOptions extends \Google\Protobuf\Internal\Message
     private $map_entry = false;
     private $has_map_entry = false;
     /**
+     * Adds a custom interface to the list of interfaces implemented by the
+     * generated, immutable message class.
+     *
+     * Generated from protobuf field <code>optional string java_message_implements = 10;</code>
+     */
+    private $java_message_implements = '';
+    private $has_java_message_implements = false;
+    /**
+     * Adds a custom interface to the list of interfaces implemented by the
+     * generated message builder class.
+     *
+     * Generated from protobuf field <code>optional string java_builder_implements = 11;</code>
+     */
+    private $java_builder_implements = '';
+    private $has_java_builder_implements = false;
+    /**
      * The parser stores options it doesn't recognize here. See above.
      *
      * Generated from protobuf field <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
@@ -138,6 +154,12 @@ class MessageOptions extends \Google\Protobuf\Internal\Message
      *           NOTE: Do not set the option in .proto files. Always use the maps syntax
      *           instead. The option should only be implicitly set by the proto compiler
      *           parser.
+     *     @type string $java_message_implements
+     *           Adds a custom interface to the list of interfaces implemented by the
+     *           generated, immutable message class.
+     *     @type string $java_builder_implements
+     *           Adds a custom interface to the list of interfaces implemented by the
+     *           generated message builder class.
      *     @type \Google\Protobuf\Internal\UninterpretedOption[]|\Google\Protobuf\Internal\RepeatedField $uninterpreted_option
      *           The parser stores options it doesn't recognize here. See above.
      * }
@@ -345,6 +367,74 @@ class MessageOptions extends \Google\Protobuf\Internal\Message
     public function hasMapEntry()
     {
         return $this->has_map_entry;
+    }
+
+    /**
+     * Adds a custom interface to the list of interfaces implemented by the
+     * generated, immutable message class.
+     *
+     * Generated from protobuf field <code>optional string java_message_implements = 10;</code>
+     * @return string
+     */
+    public function getJavaMessageImplements()
+    {
+        return $this->java_message_implements;
+    }
+
+    /**
+     * Adds a custom interface to the list of interfaces implemented by the
+     * generated, immutable message class.
+     *
+     * Generated from protobuf field <code>optional string java_message_implements = 10;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setJavaMessageImplements($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->java_message_implements = $var;
+        $this->has_java_message_implements = true;
+
+        return $this;
+    }
+
+    public function hasJavaMessageImplements()
+    {
+        return $this->has_java_message_implements;
+    }
+
+    /**
+     * Adds a custom interface to the list of interfaces implemented by the
+     * generated message builder class.
+     *
+     * Generated from protobuf field <code>optional string java_builder_implements = 11;</code>
+     * @return string
+     */
+    public function getJavaBuilderImplements()
+    {
+        return $this->java_builder_implements;
+    }
+
+    /**
+     * Adds a custom interface to the list of interfaces implemented by the
+     * generated message builder class.
+     *
+     * Generated from protobuf field <code>optional string java_builder_implements = 11;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setJavaBuilderImplements($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->java_builder_implements = $var;
+        $this->has_java_builder_implements = true;
+
+        return $this;
+    }
+
+    public function hasJavaBuilderImplements()
+    {
+        return $this->has_java_builder_implements;
     }
 
     /**

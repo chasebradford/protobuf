@@ -56,7 +56,15 @@ import junit.framework.TestSuite;
 public class ExtensionRegistryFactoryTest extends TestCase {
 
   // A classloader which blacklists some non-Lite classes.
-  private static final ClassLoader LITE_CLASS_LOADER = getLiteOnlyClassLoader();
+  private static final ClassLoader LITE_CLASS_LOADER;
+  static {
+    try {
+      LITE_CLASS_LOADER = getLiteOnlyClassLoader();
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw e;
+    }
+  }
 
   /** Defines the set of test methods which will be run. */
   static interface RegistryTests {

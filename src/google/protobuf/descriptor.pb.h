@@ -3624,6 +3624,54 @@ class PROTOBUF_EXPORT MessageOptions final :
   const ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption >&
       uninterpreted_option() const;
 
+  // optional string java_message_implements = 10;
+  bool has_java_message_implements() const;
+  void clear_java_message_implements();
+  static const int kJavaMessageImplementsFieldNumber = 10;
+  const ::std::string& java_message_implements() const;
+  void set_java_message_implements(const ::std::string& value);
+  #if LANG_CXX11
+  void set_java_message_implements(::std::string&& value);
+  #endif
+  void set_java_message_implements(const char* value);
+  void set_java_message_implements(const char* value, size_t size);
+  ::std::string* mutable_java_message_implements();
+  ::std::string* release_java_message_implements();
+  void set_allocated_java_message_implements(::std::string* java_message_implements);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  ::std::string* unsafe_arena_release_java_message_implements();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_java_message_implements(
+      ::std::string* java_message_implements);
+
+  // optional string java_builder_implements = 11;
+  bool has_java_builder_implements() const;
+  void clear_java_builder_implements();
+  static const int kJavaBuilderImplementsFieldNumber = 11;
+  const ::std::string& java_builder_implements() const;
+  void set_java_builder_implements(const ::std::string& value);
+  #if LANG_CXX11
+  void set_java_builder_implements(::std::string&& value);
+  #endif
+  void set_java_builder_implements(const char* value);
+  void set_java_builder_implements(const char* value, size_t size);
+  ::std::string* mutable_java_builder_implements();
+  ::std::string* release_java_builder_implements();
+  void set_allocated_java_builder_implements(::std::string* java_builder_implements);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  ::std::string* unsafe_arena_release_java_builder_implements();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_java_builder_implements(
+      ::std::string* java_builder_implements);
+
   // optional bool message_set_wire_format = 1 [default = false];
   bool has_message_set_wire_format() const;
   void clear_message_set_wire_format();
@@ -3666,6 +3714,8 @@ class PROTOBUF_EXPORT MessageOptions final :
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption > uninterpreted_option_;
+  ::google::protobuf::internal::ArenaStringPtr java_message_implements_;
+  ::google::protobuf::internal::ArenaStringPtr java_builder_implements_;
   bool message_set_wire_format_;
   bool no_standard_descriptor_accessor_;
   bool deprecated_;
@@ -9815,74 +9865,238 @@ FileOptions::uninterpreted_option() const {
 
 // optional bool message_set_wire_format = 1 [default = false];
 inline bool MessageOptions::has_message_set_wire_format() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void MessageOptions::clear_message_set_wire_format() {
   message_set_wire_format_ = false;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline bool MessageOptions::message_set_wire_format() const {
   // @@protoc_insertion_point(field_get:google.protobuf.MessageOptions.message_set_wire_format)
   return message_set_wire_format_;
 }
 inline void MessageOptions::set_message_set_wire_format(bool value) {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000004u;
   message_set_wire_format_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.message_set_wire_format)
 }
 
 // optional bool no_standard_descriptor_accessor = 2 [default = false];
 inline bool MessageOptions::has_no_standard_descriptor_accessor() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void MessageOptions::clear_no_standard_descriptor_accessor() {
   no_standard_descriptor_accessor_ = false;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline bool MessageOptions::no_standard_descriptor_accessor() const {
   // @@protoc_insertion_point(field_get:google.protobuf.MessageOptions.no_standard_descriptor_accessor)
   return no_standard_descriptor_accessor_;
 }
 inline void MessageOptions::set_no_standard_descriptor_accessor(bool value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000008u;
   no_standard_descriptor_accessor_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.no_standard_descriptor_accessor)
 }
 
 // optional bool deprecated = 3 [default = false];
 inline bool MessageOptions::has_deprecated() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void MessageOptions::clear_deprecated() {
   deprecated_ = false;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline bool MessageOptions::deprecated() const {
   // @@protoc_insertion_point(field_get:google.protobuf.MessageOptions.deprecated)
   return deprecated_;
 }
 inline void MessageOptions::set_deprecated(bool value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
   deprecated_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.deprecated)
 }
 
 // optional bool map_entry = 7;
 inline bool MessageOptions::has_map_entry() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void MessageOptions::clear_map_entry() {
   map_entry_ = false;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline bool MessageOptions::map_entry() const {
   // @@protoc_insertion_point(field_get:google.protobuf.MessageOptions.map_entry)
   return map_entry_;
 }
 inline void MessageOptions::set_map_entry(bool value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
   map_entry_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.map_entry)
+}
+
+// optional string java_message_implements = 10;
+inline bool MessageOptions::has_java_message_implements() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MessageOptions::clear_java_message_implements() {
+  java_message_implements_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::std::string& MessageOptions::java_message_implements() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.MessageOptions.java_message_implements)
+  return java_message_implements_.Get();
+}
+inline void MessageOptions::set_java_message_implements(const ::std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  java_message_implements_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.java_message_implements)
+}
+#if LANG_CXX11
+inline void MessageOptions::set_java_message_implements(::std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  java_message_implements_.Set(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.MessageOptions.java_message_implements)
+}
+#endif
+inline void MessageOptions::set_java_message_implements(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  java_message_implements_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_char:google.protobuf.MessageOptions.java_message_implements)
+}
+inline void MessageOptions::set_java_message_implements(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  java_message_implements_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.MessageOptions.java_message_implements)
+}
+inline ::std::string* MessageOptions::mutable_java_message_implements() {
+  _has_bits_[0] |= 0x00000001u;
+  // @@protoc_insertion_point(field_mutable:google.protobuf.MessageOptions.java_message_implements)
+  return java_message_implements_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+}
+inline ::std::string* MessageOptions::release_java_message_implements() {
+  // @@protoc_insertion_point(field_release:google.protobuf.MessageOptions.java_message_implements)
+  if (!has_java_message_implements()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return java_message_implements_.ReleaseNonDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+}
+inline void MessageOptions::set_allocated_java_message_implements(::std::string* java_message_implements) {
+  if (java_message_implements != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  java_message_implements_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), java_message_implements,
+      GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.MessageOptions.java_message_implements)
+}
+inline ::std::string* MessageOptions::unsafe_arena_release_java_message_implements() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.MessageOptions.java_message_implements)
+  GOOGLE_DCHECK(GetArenaNoVirtual() != nullptr);
+  _has_bits_[0] &= ~0x00000001u;
+  return java_message_implements_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      GetArenaNoVirtual());
+}
+inline void MessageOptions::unsafe_arena_set_allocated_java_message_implements(
+    ::std::string* java_message_implements) {
+  GOOGLE_DCHECK(GetArenaNoVirtual() != nullptr);
+  if (java_message_implements != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  java_message_implements_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      java_message_implements, GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.MessageOptions.java_message_implements)
+}
+
+// optional string java_builder_implements = 11;
+inline bool MessageOptions::has_java_builder_implements() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MessageOptions::clear_java_builder_implements() {
+  java_builder_implements_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const ::std::string& MessageOptions::java_builder_implements() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.MessageOptions.java_builder_implements)
+  return java_builder_implements_.Get();
+}
+inline void MessageOptions::set_java_builder_implements(const ::std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  java_builder_implements_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.java_builder_implements)
+}
+#if LANG_CXX11
+inline void MessageOptions::set_java_builder_implements(::std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  java_builder_implements_.Set(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.MessageOptions.java_builder_implements)
+}
+#endif
+inline void MessageOptions::set_java_builder_implements(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  java_builder_implements_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_char:google.protobuf.MessageOptions.java_builder_implements)
+}
+inline void MessageOptions::set_java_builder_implements(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  java_builder_implements_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.MessageOptions.java_builder_implements)
+}
+inline ::std::string* MessageOptions::mutable_java_builder_implements() {
+  _has_bits_[0] |= 0x00000002u;
+  // @@protoc_insertion_point(field_mutable:google.protobuf.MessageOptions.java_builder_implements)
+  return java_builder_implements_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+}
+inline ::std::string* MessageOptions::release_java_builder_implements() {
+  // @@protoc_insertion_point(field_release:google.protobuf.MessageOptions.java_builder_implements)
+  if (!has_java_builder_implements()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return java_builder_implements_.ReleaseNonDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+}
+inline void MessageOptions::set_allocated_java_builder_implements(::std::string* java_builder_implements) {
+  if (java_builder_implements != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  java_builder_implements_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), java_builder_implements,
+      GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.MessageOptions.java_builder_implements)
+}
+inline ::std::string* MessageOptions::unsafe_arena_release_java_builder_implements() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.MessageOptions.java_builder_implements)
+  GOOGLE_DCHECK(GetArenaNoVirtual() != nullptr);
+  _has_bits_[0] &= ~0x00000002u;
+  return java_builder_implements_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      GetArenaNoVirtual());
+}
+inline void MessageOptions::unsafe_arena_set_allocated_java_builder_implements(
+    ::std::string* java_builder_implements) {
+  GOOGLE_DCHECK(GetArenaNoVirtual() != nullptr);
+  if (java_builder_implements != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  java_builder_implements_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      java_builder_implements, GetArenaNoVirtual());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.MessageOptions.java_builder_implements)
 }
 
 // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
