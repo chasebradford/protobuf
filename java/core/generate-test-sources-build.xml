@@ -35,6 +35,7 @@
         <arg value="${test.proto.dir}/com/google/protobuf/test_check_utf8.proto"/>
         <arg value="${test.proto.dir}/com/google/protobuf/test_check_utf8_size.proto"/>
         <arg value="${test.proto.dir}/com/google/protobuf/test_custom_options.proto"/>
+        <arg value="${test.proto.dir}/com/google/protobuf/test_extra_interfaces.proto"/>
         <arg value="${test.proto.dir}/com/google/protobuf/any_test.proto"/>
         <arg value="${test.proto.dir}/com/google/protobuf/field_presence_test.proto"/>
         <arg value="${test.proto.dir}/com/google/protobuf/map_for_proto2_lite_test.proto"/>

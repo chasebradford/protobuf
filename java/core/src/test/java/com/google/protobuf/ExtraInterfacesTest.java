@@ -1,5 +1,5 @@
 // Protocol Buffers - Google's data interchange format
-// Copyright 2008 Google Inc.  All rights reserved.
+// Copyright 2019 Google Inc.  All rights reserved.
 // https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,23 +28,44 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: Darick Tong (darick@google.com)
-syntax = "proto2";
+package com.google.protobuf;
 
-package protobuf_unittest;
+import com.google.protobuf.Descriptors.Descriptor;
+import com.google.protobuf.Descriptors.EnumDescriptor;
+import com.google.protobuf.Descriptors.EnumValueDescriptor;
+import com.google.protobuf.Descriptors.FieldDescriptor;
+import com.google.protobuf.test.TestWellKnownTypes;
 
-message Proto1 {
-  option java_message_implements = "com.google.protobuf.ExtraInterfacesTest.HasId";
-  option java_builder_implements = "com.google.protobuf.ExtraInterfacesTest.HasId.Setters";
+import junit.framework.TestCase;
 
-  optional string id = 1;
-  optional string string_value = 2;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import protobuf_unittest.TestExtraInterfaces.Proto1;
+import protobuf_unittest.TestExtraInterfaces.Proto2;
+
+/**
+ * This test ensures that well-known types are included in protobuf Java
+ * runtime library.
+ */
+public class ExtraInterfacesTest extends TestCase {
+  public interface HasId {
+    String getId();
+
+    interface Setters {
+      Setters setId(String id);
+    }
+  }
+
+  public void testExtraInterfaces() {
+
+    HasId proto1 = Proto1.getDefaultInstance();
+    HasId proto2 = Proto2.getDefaultInstance();
+
+    HasId.Setters proto1Builder = Proto1.newBuilder();
+    HasId.Setters proto2Builder = Proto2.newBuilder();
+  }
 }
 
-message Proto2 {
-  option java_message_implements = "com.google.protobuf.ExtraInterfacesTest.HasId";
-  option java_builder_implements = "com.google.protobuf.ExtraInterfacesTest.HasId.Setters";
-
-  optional string id = 1;
-  optional int32 int_value = 2;
-}
